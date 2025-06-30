@@ -2,6 +2,7 @@ import '../models/recipe.dart';
 import '../models/meal.dart';
 import '../models/product.dart';
 import '../models/cart_item.dart';
+import '../models/inventory_item.dart';
 
 /// Sample data class providing test data
 class SampleData {
@@ -110,82 +111,6 @@ class SampleData {
     ),
   ];
 
-  // Sample product category data
-  static final List<ProductCategory> _sampleCategories = [
-    ProductCategory(
-      id: 'vegetables',
-      name: 'Vegetables',
-      products: [
-        Product(
-          id: 'tomato',
-          name: 'Tomato',
-          description: 'Fresh red tomatoes, sweet and tangy',
-          imageUrl: 'https://example.com/tomato.jpg',
-          price: 8.5,
-          unit: 'kg',
-          categoryId: 'vegetables',
-        ),
-        Product(
-          id: 'onion',
-          name: 'Onion',
-          description: 'Quality onions, essential for cooking',
-          imageUrl: 'https://example.com/onion.jpg',
-          price: 6.0,
-          unit: 'kg',
-          categoryId: 'vegetables',
-        ),
-      ],
-    ),
-    ProductCategory(
-      id: 'meat',
-      name: 'Meat',
-      products: [
-        Product(
-          id: 'chicken-breast',
-          name: 'Chicken Breast',
-          description: 'Fresh chicken breast, high protein and low fat',
-          imageUrl: 'https://example.com/chicken-breast.jpg',
-          price: 25.0,
-          unit: 'kg',
-          categoryId: 'meat',
-        ),
-        Product(
-          id: 'pork-belly',
-          name: 'Pork Belly',
-          description: 'Quality pork belly, well-marbled',
-          imageUrl: 'https://example.com/pork-belly.jpg',
-          price: 32.0,
-          unit: 'kg',
-          categoryId: 'meat',
-        ),
-      ],
-    ),
-    ProductCategory(
-      id: 'grains',
-      name: 'Grains',
-      products: [
-        Product(
-          id: 'rice',
-          name: 'Rice',
-          description: 'Premium northeast rice, plump grains',
-          imageUrl: 'https://example.com/rice.jpg',
-          price: 12.0,
-          unit: 'kg',
-          categoryId: 'grains',
-        ),
-        Product(
-          id: 'noodles',
-          name: 'Noodles',
-          description: 'Hand-pulled noodles, chewy texture',
-          imageUrl: 'https://example.com/noodles.jpg',
-          price: 8.0,
-          unit: 'kg',
-          categoryId: 'grains',
-        ),
-      ],
-    ),
-  ];
-
   /// Get all sample recipes
   static List<Recipe> get recipes => List.unmodifiable(_sampleRecipes);
 
@@ -245,30 +170,6 @@ class SampleData {
     return [];
   }
 
-  /// Get all product categories
-  static List<ProductCategory> get productCategories => List.unmodifiable(_sampleCategories);
-
-  /// Get product by ID
-  static Product? getProductById(String id) {
-    for (final category in _sampleCategories) {
-      try {
-        return category.products.firstWhere((product) => product.id == id);
-      } catch (e) {
-        continue;
-      }
-    }
-    return null;
-  }
-
-  /// Get all products
-  static List<Product> get allProducts {
-    final List<Product> products = [];
-    for (final category in _sampleCategories) {
-      products.addAll(category.products);
-    }
-    return products;
-  }
-
   /// Check if two dates are the same day
   static bool _isSameDay(DateTime a, DateTime b) {
     return a.year == b.year && a.month == b.month && a.day == b.day;
@@ -284,4 +185,194 @@ class SampleData {
     phone: '13800138000',
     isDefault: true,
   );
+
+  // Sample inventory items
+  final List<InventoryItem> sampleInventoryItems = [
+    InventoryItem(
+      id: '1',
+      name: 'Tomatoes',
+      weight: '500g',
+      imageUrl: 'assets/images/veggie_curry.jpg',
+    ),
+    InventoryItem(
+      id: '2',
+      name: 'Chicken Breast',
+      weight: '1kg',
+      imageUrl: 'assets/images/chicken_breast.jpg',
+    ),
+    InventoryItem(
+      id: '3',
+      name: 'Salmon',
+      weight: '500g',
+      imageUrl: 'assets/images/salmon.jpg',
+    ),
+  ];
+
+  // Sample recipes
+  final List<Recipe> sampleFavoriteRecipes = [
+    Recipe(
+      id: '1',
+      name: 'Avocado Toast with Eggs',
+      description: 'A healthy and delicious breakfast featuring creamy avocado and perfectly cooked eggs on toasted bread.',
+      servings: 2,
+      cookingTime: 15,
+      imageUrl: 'assets/images/avocado_toast.jpg',
+      ingredients: [
+        'Bread',
+        'Avocado',
+        'Eggs',
+        'Salt',
+        'Pepper',
+        'Olive oil',
+      ],
+      instructions: [
+        'Toast the bread until golden brown',
+        'Mash the avocado and season with salt and pepper',
+        'Spread the mashed avocado on the toast',
+        'Cook the eggs to your liking and place on top',
+        'Drizzle with olive oil and serve',
+      ],
+      difficulty: 'Easy',
+      tags: ['Breakfast', 'Healthy', 'Vegetarian'],
+    ),
+    Recipe(
+      id: '2',
+      name: 'Quinoa Salad',
+      description: 'A refreshing salad made with quinoa, fresh vegetables, and a light vinaigrette dressing.',
+      servings: 4,
+      cookingTime: 25,
+      imageUrl: 'assets/images/quinoa_salad.jpg',
+      ingredients: [
+        'Quinoa',
+        'Cherry tomatoes',
+        'Cucumber',
+        'Red onion',
+        'Olive oil',
+        'Lemon juice',
+        'Fresh herbs',
+      ],
+      instructions: [
+        'Cook quinoa according to package instructions',
+        'Chop all vegetables into bite-sized pieces',
+        'Mix cooked quinoa with vegetables',
+        'Whisk together olive oil and lemon juice',
+        'Pour dressing over salad and toss',
+        'Add fresh herbs and serve',
+      ],
+      difficulty: 'Medium',
+      tags: ['Salad', 'Healthy', 'Vegetarian', 'Gluten-free'],
+    ),
+    Recipe(
+      id: '3',
+      name: 'Veggie Curry',
+      description: 'A flavorful vegetarian curry packed with seasonal vegetables and aromatic spices.',
+      servings: 4,
+      cookingTime: 30,
+      imageUrl: 'assets/images/veggie_curry.jpg',
+      ingredients: [
+        'Mixed vegetables',
+        'Coconut milk',
+        'Curry powder',
+        'Onion',
+        'Garlic',
+        'Ginger',
+        'Rice',
+      ],
+      instructions: [
+        'Cook rice according to package instructions',
+        'Sauté onion, garlic, and ginger until fragrant',
+        'Add curry powder and cook for 1 minute',
+        'Add vegetables and coconut milk',
+        'Simmer until vegetables are tender',
+        'Serve hot over rice',
+      ],
+      difficulty: 'Medium',
+      tags: ['Curry', 'Vegetarian', 'Spicy', 'Asian'],
+    ),
+  ];
+
+  // Sample products
+  final List<Product> sampleProducts = [
+    Product(
+      id: '1',
+      name: 'Fresh Tomatoes',
+      description: 'Ripe and juicy tomatoes, perfect for salads or cooking',
+      price: 2.99,
+      imageUrl: 'assets/images/veggie_curry.jpg',
+      category: 'Produce',
+      unit: 'lb',
+    ),
+    Product(
+      id: '2',
+      name: 'Onions',
+      description: 'Fresh onions, essential for many dishes',
+      price: 1.99,
+      imageUrl: 'assets/images/fresh_from_farm.jpg',
+      category: 'Produce',
+      unit: 'lb',
+    ),
+    Product(
+      id: '3',
+      name: 'Chicken Breast',
+      description: 'Boneless, skinless chicken breast, high in protein',
+      price: 8.99,
+      imageUrl: 'assets/images/chicken_breast.jpg',
+      category: 'Meat & Seafood',
+      unit: 'lb',
+    ),
+    Product(
+      id: '4',
+      name: 'Pork Belly',
+      description: 'Fresh pork belly, perfect for braising',
+      price: 7.99,
+      imageUrl: 'assets/images/pork.jpg',
+      category: 'Meat & Seafood',
+      unit: 'lb',
+    ),
+  ];
+
+  /// Sample product data
+  final List<Product> sampleProduceProducts = [
+    Product(
+      id: 'organic_pumpkin',
+      name: 'Organic Pumpkin',
+      description: 'Fresh organic pumpkin, perfect for soups, pies, and roasting. High in vitamins and minerals.',
+      price: 5.0,
+      imageUrl: 'assets/images/pumpkin.jpg',
+      category: 'Produce',
+      unit: '1500g',
+      isAvailable: true,
+    ),
+    Product(
+      id: 'organic_eggs',
+      name: 'Organic Eggs',
+      description: 'Farm-fresh organic eggs from free-range chickens. Rich in protein and omega-3.',
+      price: 6.0,
+      imageUrl: 'assets/images/eggs.jpg',
+      category: 'Produce',
+      unit: '12 pcs',
+      isAvailable: true,
+    ),
+  ];
+
+  /// Sample meat products
+  final List<Product> sampleMeatProducts = [];
+
+  /// Sample dairy products
+  final List<Product> sampleDairyProducts = [];
+
+  /// Sample pantry products
+  final List<Product> samplePantryProducts = [];
+
+  /// Sample frozen products
+  final List<Product> sampleFrozenProducts = [];
+
+  /// Sample beverage products
+  final List<Product> sampleBeverageProducts = [];
+
+  /// Sample snack products
+  final List<Product> sampleSnackProducts = [];
+
+  /// Sample bakery products
+  final List<Product> sampleBakeryProducts = [];
 }

@@ -21,7 +21,7 @@ class _ReceiptScreenState extends State<ReceiptScreen>
   late Animation<Offset> _slideAnimation;
   
   String _orderId = '';
-  DateTime _orderTime = DateTime.now();
+  final DateTime _orderTime = DateTime.now();
   List<CartItem> _cartItems = [];
   double _totalPrice = 0.0;
   double _deliveryFee = 0.0;

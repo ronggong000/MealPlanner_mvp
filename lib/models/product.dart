@@ -44,21 +44,21 @@ class Product {
   final String id;
   final String name;
   final String description;
-  final String imageUrl;
   final double price;
-  final String unit; // 'kg', 'g', 'piece', 'bottle', etc.
-  final String categoryId;
+  final String imageUrl;
+  final String category;
+  final String unit;
   final bool isAvailable;
   final Map<String, dynamic>? nutritionInfo;
 
-  const Product({
+  Product({
     required this.id,
     required this.name,
     required this.description,
-    required this.imageUrl,
     required this.price,
+    required this.imageUrl,
+    required this.category,
     required this.unit,
-    required this.categoryId,
     this.isAvailable = true,
     this.nutritionInfo,
   });
@@ -69,11 +69,11 @@ class Product {
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
-      imageUrl: json['imageUrl'] as String,
       price: (json['price'] as num).toDouble(),
+      imageUrl: json['imageUrl'] as String,
+      category: json['category'] as String,
       unit: json['unit'] as String,
-      categoryId: json['categoryId'] as String,
-      isAvailable: json['isAvailable'] as bool? ?? true,
+      isAvailable: json['isAvailable'] as bool,
       nutritionInfo: json['nutritionInfo'] as Map<String, dynamic>?,
     );
   }
@@ -84,10 +84,10 @@ class Product {
       'id': id,
       'name': name,
       'description': description,
-      'imageUrl': imageUrl,
       'price': price,
+      'imageUrl': imageUrl,
+      'category': category,
       'unit': unit,
-      'categoryId': categoryId,
       'isAvailable': isAvailable,
       'nutritionInfo': nutritionInfo,
     };
@@ -98,10 +98,10 @@ class Product {
     String? id,
     String? name,
     String? description,
-    String? imageUrl,
     double? price,
+    String? imageUrl,
+    String? category,
     String? unit,
-    String? categoryId,
     bool? isAvailable,
     Map<String, dynamic>? nutritionInfo,
   }) {
@@ -109,10 +109,10 @@ class Product {
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
-      imageUrl: imageUrl ?? this.imageUrl,
       price: price ?? this.price,
+      imageUrl: imageUrl ?? this.imageUrl,
+      category: category ?? this.category,
       unit: unit ?? this.unit,
-      categoryId: categoryId ?? this.categoryId,
       isAvailable: isAvailable ?? this.isAvailable,
       nutritionInfo: nutritionInfo ?? this.nutritionInfo,
     );

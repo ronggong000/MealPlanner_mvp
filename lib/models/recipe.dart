@@ -10,6 +10,7 @@ class Recipe {
   final int servings;
   final String difficulty; // 'easy', 'medium', 'hard'
   final List<String> tags;
+  final bool isFavorite;
 
   const Recipe({
     required this.id,
@@ -22,6 +23,7 @@ class Recipe {
     required this.servings,
     required this.difficulty,
     required this.tags,
+    this.isFavorite = false,
   });
 
   /// Create Recipe instance from JSON
@@ -37,6 +39,7 @@ class Recipe {
       servings: json['servings'] as int,
       difficulty: json['difficulty'] as String,
       tags: List<String>.from(json['tags'] as List),
+      isFavorite: json['isFavorite'] as bool,
     );
   }
 
@@ -53,6 +56,7 @@ class Recipe {
       'servings': servings,
       'difficulty': difficulty,
       'tags': tags,
+      'isFavorite': isFavorite,
     };
   }
 
@@ -68,6 +72,7 @@ class Recipe {
     int? servings,
     String? difficulty,
     List<String>? tags,
+    bool? isFavorite,
   }) {
     return Recipe(
       id: id ?? this.id,
@@ -80,6 +85,7 @@ class Recipe {
       servings: servings ?? this.servings,
       difficulty: difficulty ?? this.difficulty,
       tags: tags ?? this.tags,
+      isFavorite: isFavorite ?? this.isFavorite,
     );
   }
 
@@ -92,3 +98,46 @@ class Recipe {
   @override
   int get hashCode => id.hashCode;
 }
+
+// Sample data for favorite recipes
+final List<Recipe> sampleFavoriteRecipes = [
+  Recipe(
+    id: '1',
+    name: 'Avocado Toast with Egg',
+    description: 'A delicious breakfast recipe',
+    imageUrl: 'assets/images/avocado_toast.jpg',
+    ingredients: ['Avocado', 'Egg', 'Toast'],
+    instructions: ['Toast the bread', 'Mash the avocado', 'Cook the egg'],
+    cookingTime: 10,
+    servings: 1,
+    difficulty: 'easy',
+    tags: ['breakfast', 'healthy'],
+    isFavorite: true,
+  ),
+  Recipe(
+    id: '2',
+    name: 'Quinoa Salad with Vegetables',
+    description: 'A nutritious and delicious salad',
+    imageUrl: 'assets/images/quinoa_salad.jpg',
+    ingredients: ['Quinoa', 'Vegetables', 'Olive Oil'],
+    instructions: ['Cook the quinoa', 'Mix with vegetables', 'Drizzle with olive oil'],
+    cookingTime: 30,
+    servings: 2,
+    difficulty: 'medium',
+    tags: ['salad', 'healthy'],
+    isFavorite: true,
+  ),
+  Recipe(
+    id: '3',
+    name: 'Salmon with Roasted Vegetables',
+    description: 'A healthy and flavorful meal',
+    imageUrl: 'assets/images/salmon_roasted.jpg',
+    ingredients: ['Salmon', 'Vegetables', 'Lemon'],
+    instructions: ['Roast the vegetables', 'Bake the salmon', 'Serve with lemon'],
+    cookingTime: 45,
+    servings: 2,
+    difficulty: 'hard',
+    tags: ['dinner', 'healthy'],
+    isFavorite: true,
+  ),
+];

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../../theme/app_colors.dart';
 
 /// Settings page
@@ -18,7 +17,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundPink,
+      backgroundColor: const Color.fromARGB(255, 172, 60, 60),
       appBar: AppBar(
         title: const Text(
           'Settings',
@@ -27,7 +26,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: AppColors.primaryButtonBackground,
+        backgroundColor: const Color.fromARGB(255, 41, 108, 232),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -98,8 +97,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   subtitle: 'Manage delivery addresses',
                   onTap: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Address management feature coming soon')),
-                    );
+                      const SnackBar(content: Text('Address management feature coming soonsssssssss')),
+                    );  
                   },
                 ),
                 _buildListTile(

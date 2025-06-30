@@ -4,7 +4,11 @@ import 'router/app_router.dart';
 import 'theme/app_colors.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,10 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'MealPlanner',
+    return MaterialApp(
+      title: 'Meal Planner',
       theme: AppTheme.lightTheme,
-      routerConfig: AppRouter.router,
+      routes: AppRouter.routes,
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
     );
   }

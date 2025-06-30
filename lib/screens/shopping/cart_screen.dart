@@ -27,7 +27,7 @@ class CartScreen extends ConsumerWidget {
         backgroundColor: AppColors.primaryButtonBackground,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => context.pop(),
+          onPressed: () => Navigator.pop(context),
         ),
         actions: [
           if (cartState.items.isNotEmpty)
