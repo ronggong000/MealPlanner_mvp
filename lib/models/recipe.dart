@@ -2,27 +2,29 @@
 class Recipe {
   final String id;
   final String name;
-  final String description;
-  final String imageUrl;
   final List<String> ingredients;
-  final List<String> instructions;
-  final int cookingTime; // minutes
+  final String instructions;
+  final String? imageUrl;
+  final String? description;
   final int servings;
-  final String difficulty; // 'easy', 'medium', 'hard'
-  final List<String> tags;
+  final int portions;
+  final String? cookingTime;
+  final String? difficulty;
+  final List<String>? tags;
   final bool isFavorite;
 
   const Recipe({
     required this.id,
     required this.name,
-    required this.description,
-    required this.imageUrl,
     required this.ingredients,
     required this.instructions,
-    required this.cookingTime,
     required this.servings,
-    required this.difficulty,
-    required this.tags,
+    required this.portions,
+    this.imageUrl,
+    this.description,
+    this.cookingTime,
+    this.difficulty,
+    this.tags,
     this.isFavorite = false,
   });
 
@@ -31,15 +33,16 @@ class Recipe {
     return Recipe(
       id: json['id'] as String,
       name: json['name'] as String,
-      description: json['description'] as String,
-      imageUrl: json['imageUrl'] as String,
-      ingredients: List<String>.from(json['ingredients'] as List),
-      instructions: List<String>.from(json['instructions'] as List),
-      cookingTime: json['cookingTime'] as int,
+      ingredients: (json['ingredients'] as List<dynamic>).map((e) => e as String).toList(),
+      instructions: json['instructions'] as String,
       servings: json['servings'] as int,
-      difficulty: json['difficulty'] as String,
-      tags: List<String>.from(json['tags'] as List),
-      isFavorite: json['isFavorite'] as bool,
+      portions: json['portions'] as int,
+      imageUrl: json['imageUrl'] as String?,
+      description: json['description'] as String?,
+      cookingTime: json['cookingTime'] as String?,
+      difficulty: json['difficulty'] as String?,
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      isFavorite: json['isFavorite'] as bool? ?? false,
     );
   }
 
@@ -48,12 +51,13 @@ class Recipe {
     return {
       'id': id,
       'name': name,
-      'description': description,
-      'imageUrl': imageUrl,
       'ingredients': ingredients,
       'instructions': instructions,
-      'cookingTime': cookingTime,
+      'imageUrl': imageUrl,
+      'description': description,
       'servings': servings,
+      'portions': portions,
+      'cookingTime': cookingTime,
       'difficulty': difficulty,
       'tags': tags,
       'isFavorite': isFavorite,
@@ -64,12 +68,13 @@ class Recipe {
   Recipe copyWith({
     String? id,
     String? name,
-    String? description,
-    String? imageUrl,
     List<String>? ingredients,
-    List<String>? instructions,
-    int? cookingTime,
+    String? instructions,
+    String? imageUrl,
+    String? description,
     int? servings,
+    int? portions,
+    String? cookingTime,
     String? difficulty,
     List<String>? tags,
     bool? isFavorite,
@@ -77,12 +82,13 @@ class Recipe {
     return Recipe(
       id: id ?? this.id,
       name: name ?? this.name,
-      description: description ?? this.description,
-      imageUrl: imageUrl ?? this.imageUrl,
       ingredients: ingredients ?? this.ingredients,
       instructions: instructions ?? this.instructions,
-      cookingTime: cookingTime ?? this.cookingTime,
       servings: servings ?? this.servings,
+      portions: portions ?? this.portions,
+      imageUrl: imageUrl ?? this.imageUrl,
+      description: description ?? this.description,
+      cookingTime: cookingTime ?? this.cookingTime,
       difficulty: difficulty ?? this.difficulty,
       tags: tags ?? this.tags,
       isFavorite: isFavorite ?? this.isFavorite,
@@ -104,12 +110,13 @@ final List<Recipe> sampleFavoriteRecipes = [
   Recipe(
     id: '1',
     name: 'Avocado Toast with Egg',
-    description: 'A delicious breakfast recipe',
-    imageUrl: 'assets/images/avocado_toast.jpg',
     ingredients: ['Avocado', 'Egg', 'Toast'],
-    instructions: ['Toast the bread', 'Mash the avocado', 'Cook the egg'],
-    cookingTime: 10,
+    instructions: 'Toast the bread, Mash the avocado, Cook the egg',
     servings: 1,
+    portions: 1,
+    imageUrl: 'assets/images/avocado_toast.jpg',
+    description: 'A delicious breakfast recipe',
+    cookingTime: '10 minutes',
     difficulty: 'easy',
     tags: ['breakfast', 'healthy'],
     isFavorite: true,
@@ -117,12 +124,13 @@ final List<Recipe> sampleFavoriteRecipes = [
   Recipe(
     id: '2',
     name: 'Quinoa Salad with Vegetables',
-    description: 'A nutritious and delicious salad',
-    imageUrl: 'assets/images/quinoa_salad.jpg',
     ingredients: ['Quinoa', 'Vegetables', 'Olive Oil'],
-    instructions: ['Cook the quinoa', 'Mix with vegetables', 'Drizzle with olive oil'],
-    cookingTime: 30,
+    instructions: 'Cook the quinoa, Mix with vegetables, Drizzle with olive oil',
     servings: 2,
+    portions: 2,
+    imageUrl: 'assets/images/quinoa_salad.jpg',
+    description: 'A nutritious and delicious salad',
+    cookingTime: '30 minutes',
     difficulty: 'medium',
     tags: ['salad', 'healthy'],
     isFavorite: true,
@@ -130,12 +138,13 @@ final List<Recipe> sampleFavoriteRecipes = [
   Recipe(
     id: '3',
     name: 'Salmon with Roasted Vegetables',
-    description: 'A healthy and flavorful meal',
-    imageUrl: 'assets/images/salmon_roasted.jpg',
     ingredients: ['Salmon', 'Vegetables', 'Lemon'],
-    instructions: ['Roast the vegetables', 'Bake the salmon', 'Serve with lemon'],
-    cookingTime: 45,
+    instructions: 'Roast the vegetables, Bake the salmon, Serve with lemon',
     servings: 2,
+    portions: 2,
+    imageUrl: 'assets/images/salmon_roasted.jpg',
+    description: 'A healthy and flavorful meal',
+    cookingTime: '45 minutes',
     difficulty: 'hard',
     tags: ['dinner', 'healthy'],
     isFavorite: true,

@@ -280,15 +280,19 @@ class _NewMealsScreenState extends State<NewMealsScreen>
                   width: 50,
                   height: 50,
                   color: AppColors.subtitleText.withOpacity(0.3),
-                  child: recipe.imageUrl.isNotEmpty
-                      ? Image.network(
-                          recipe.imageUrl,
+                  child: recipe.imageUrl?.isNotEmpty == true
+                      ? Image.asset(
+                          recipe.imageUrl!,
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return const Icon(Icons.restaurant, color: AppColors.subtitleText);
-                          },
                         )
-                      : const Icon(Icons.restaurant, color: AppColors.subtitleText),
+                      : Container(
+                          color: Colors.grey[200],
+                          child: Icon(
+                            Icons.restaurant,
+                            size: 40,
+                            color: Colors.grey[400],
+                          ),
+                        ),
                 ),
               ),
               const SizedBox(width: 12),

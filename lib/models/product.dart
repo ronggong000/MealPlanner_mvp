@@ -49,9 +49,8 @@ class Product {
   final String category;
   final String unit;
   final bool isAvailable;
-  final Map<String, dynamic>? nutritionInfo;
 
-  Product({
+  const Product({
     required this.id,
     required this.name,
     required this.description,
@@ -59,8 +58,7 @@ class Product {
     required this.imageUrl,
     required this.category,
     required this.unit,
-    this.isAvailable = true,
-    this.nutritionInfo,
+    required this.isAvailable,
   });
 
   /// Create Product instance from JSON
@@ -69,12 +67,11 @@ class Product {
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
-      price: (json['price'] as num).toDouble(),
+      price: json['price'] as double,
       imageUrl: json['imageUrl'] as String,
       category: json['category'] as String,
       unit: json['unit'] as String,
       isAvailable: json['isAvailable'] as bool,
-      nutritionInfo: json['nutritionInfo'] as Map<String, dynamic>?,
     );
   }
 
@@ -89,7 +86,6 @@ class Product {
       'category': category,
       'unit': unit,
       'isAvailable': isAvailable,
-      'nutritionInfo': nutritionInfo,
     };
   }
 
@@ -103,7 +99,6 @@ class Product {
     String? category,
     String? unit,
     bool? isAvailable,
-    Map<String, dynamic>? nutritionInfo,
   }) {
     return Product(
       id: id ?? this.id,
@@ -114,7 +109,6 @@ class Product {
       category: category ?? this.category,
       unit: unit ?? this.unit,
       isAvailable: isAvailable ?? this.isAvailable,
-      nutritionInfo: nutritionInfo ?? this.nutritionInfo,
     );
   }
 

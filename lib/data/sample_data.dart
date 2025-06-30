@@ -12,18 +12,12 @@ class SampleData {
       id: '1',
       name: 'Tomato Egg Noodles',
       description: 'Classic Chinese noodles, nutritious and easy to make',
-      imageUrl: 'https://example.com/tomato-egg-noodles.jpg',
+      imageUrl: 'assets/images/tomato_egg_noodles.jpg',
       ingredients: ['Noodles 200g', 'Eggs 2', 'Tomatoes 2', 'Green onion 1', 'Salt to taste', 'Sugar 1 tsp', 'Soy sauce 1 tbsp'],
-      instructions: [
-        'Cut tomatoes into chunks, slice green onions',
-        'Heat oil in pan, scramble eggs and set aside',
-        'Stir-fry tomatoes until juicy',
-        'Add seasonings and stir well',
-        'Cook noodles until tender',
-        'Mix noodles with stir-fried tomato and eggs'
-      ],
-      cookingTime: 15,
+      instructions: 'Cut tomatoes into chunks, slice green onions. Heat oil in pan, scramble eggs and set aside. Stir-fry tomatoes until juicy. Add seasonings and stir well. Cook noodles until tender. Mix noodles with stir-fried tomato and eggs.',
+      cookingTime: '15 minutes',
       servings: 2,
+      portions: 2,
       difficulty: 'easy',
       tags: ['Chinese', 'Noodles', 'Quick meal'],
     ),
@@ -31,17 +25,12 @@ class SampleData {
       id: '2',
       name: 'Steamed Egg Custard',
       description: 'Silky steamed egg, perfect for breakfast',
-      imageUrl: 'https://example.com/steamed-egg.jpg',
+      imageUrl: 'assets/images/steamed_egg_custard.jpg',
       ingredients: ['Eggs 3', 'Warm water 150ml', 'Salt pinch', 'Sesame oil few drops', 'Chopped green onions to taste'],
-      instructions: [
-        'Beat eggs, add warm water and salt',
-        'Strain to remove foam',
-        'Steam after water boils',
-        'Steam on medium heat for 10-12 minutes',
-        'Garnish with green onions and sesame oil'
-      ],
-      cookingTime: 20,
+      instructions: 'Beat eggs, add warm water and salt. Strain to remove foam. Steam after water boils. Steam on medium heat for 10-12 minutes. Garnish with green onions and sesame oil.',
+      cookingTime: '20 minutes',
       servings: 2,
+      portions: 2,
       difficulty: 'easy',
       tags: ['Steamed', 'Breakfast', 'Nutritious'],
     ),
@@ -49,22 +38,16 @@ class SampleData {
       id: '3',
       name: 'Kung Pao Chicken',
       description: 'Classic Sichuan dish, spicy and flavorful',
-      imageUrl: 'https://example.com/kung-pao-chicken.jpg',
+      imageUrl: 'assets/images/kung_pao_chicken.jpg',
       ingredients: [
         'Chicken breast 300g', 'Peanuts 50g', 'Dried chilies 10', 'Sichuan peppercorns 1 tsp',
         'Green onions 2', 'Ginger 1 piece', 'Garlic 3 cloves', 'Light soy sauce 2 tbsp', 'Dark soy sauce 1 tsp',
         'Cooking wine 1 tbsp', 'Sugar 1 tsp', 'Vinegar 1 tsp', 'Cornstarch 1 tbsp'
       ],
-      instructions: [
-        'Dice chicken, marinate with wine, soy sauce, and cornstarch',
-        'Deep fry peanuts until crispy',
-        'Stir-fry dried chilies and peppercorns',
-        'Add chicken and stir-fry until color changes',
-        'Add seasonings and stir well',
-        'Finally add peanuts and stir-fry'
-      ],
-      cookingTime: 25,
+      instructions: 'Dice chicken, marinate with wine, soy sauce, and cornstarch. Deep fry peanuts until crispy. Stir-fry dried chilies and peppercorns. Add chicken and stir-fry until color changes. Add seasonings and stir well. Finally add peanuts and stir-fry.',
+      cookingTime: '25 minutes',
       servings: 3,
+      portions: 3,
       difficulty: 'medium',
       tags: ['Sichuan', 'Main dish', 'Spicy'],
     ),
@@ -72,17 +55,12 @@ class SampleData {
       id: '4',
       name: 'Millet Porridge',
       description: 'Nourishing and gentle millet porridge',
-      imageUrl: 'https://example.com/millet-porridge.jpg',
+      imageUrl: 'assets/images/millet_porridge.jpg',
       ingredients: ['Millet 100g', 'Water 1000ml', 'Red dates 5', 'Goji berries to taste'],
-      instructions: [
-        'Rinse millet clean',
-        'Boil water in pot',
-        'Add millet, bring to boil then reduce heat',
-        'Cook for 30 minutes until thick',
-        'Add dates and goji berries, cook 5 more minutes'
-      ],
-      cookingTime: 40,
+      instructions: 'Rinse millet clean. Boil water in pot. Add millet, bring to boil then reduce heat. Cook for 30 minutes until thick. Add dates and goji berries, cook 5 more minutes.',
+      cookingTime: '40 minutes',
       servings: 2,
+      portions: 2,
       difficulty: 'easy',
       tags: ['Porridge', 'Stomach-friendly', 'Breakfast'],
     ),
@@ -90,24 +68,56 @@ class SampleData {
       id: '5',
       name: 'Braised Pork Belly',
       description: 'Classic braised pork belly, rich but not greasy',
-      imageUrl: 'https://example.com/braised-pork.jpg',
+      imageUrl: 'assets/images/braised_pork_belly.jpg',
       ingredients: [
         'Pork belly 500g', 'Rock sugar 30g', 'Light soy sauce 3 tbsp', 'Dark soy sauce 1 tbsp',
         'Cooking wine 2 tbsp', 'Green onions 2', 'Ginger 3 slices', 'Star anise 2', 'Cinnamon 1 piece'
       ],
-      instructions: [
-        'Cut pork belly into chunks, blanch to remove odor',
-        'Caramelize rock sugar in pot',
-        'Add pork and stir-fry until colored',
-        'Add seasonings and spices',
-        'Add water to cover meat',
-        'Bring to boil then simmer for 1 hour',
-        'Reduce sauce on high heat'
-      ],
-      cookingTime: 90,
+      instructions: 'Cut pork belly into chunks, blanch to remove odor. Caramelize rock sugar in pot. Add pork and stir-fry until colored. Add seasonings and spices. Add water to cover meat. Bring to boil then simmer for 1 hour. Reduce sauce on high heat.',
+      cookingTime: '90 minutes',
       servings: 4,
+      portions: 4,
       difficulty: 'medium',
       tags: ['Braised', 'Main dish', 'Classic'],
+    ),
+    Recipe(
+      id: '1',
+      name: 'Avocado Toast with Egg',
+      ingredients: ['Avocado', 'Egg', 'Toast'],
+      instructions: 'Toast the bread, Mash the avocado, Cook the egg',
+      servings: 1,
+      portions: 1,
+      imageUrl: 'assets/images/avocado_toast.jpg',
+      description: 'A delicious breakfast recipe',
+      cookingTime: '10 minutes',
+      difficulty: 'easy',
+      tags: ['breakfast', 'healthy'],
+    ),
+    Recipe(
+      id: '2',
+      name: 'Quinoa Salad with Vegetables',
+      ingredients: ['Quinoa', 'Vegetables', 'Olive Oil'],
+      instructions: 'Cook the quinoa, Mix with vegetables, Drizzle with olive oil',
+      servings: 2,
+      portions: 2,
+      imageUrl: 'assets/images/quinoa_salad.jpg',
+      description: 'A nutritious and delicious salad',
+      cookingTime: '30 minutes',
+      difficulty: 'medium',
+      tags: ['salad', 'healthy'],
+    ),
+    Recipe(
+      id: '3',
+      name: 'Salmon with Roasted Vegetables',
+      ingredients: ['Salmon', 'Vegetables', 'Lemon'],
+      instructions: 'Roast the vegetables, Bake the salmon, Serve with lemon',
+      servings: 2,
+      portions: 2,
+      imageUrl: 'assets/images/salmon_roasted.jpg',
+      description: 'A healthy and flavorful meal',
+      cookingTime: '45 minutes',
+      difficulty: 'hard',
+      tags: ['dinner', 'healthy'],
     ),
   ];
 
@@ -187,7 +197,7 @@ class SampleData {
   );
 
   // Sample inventory items
-  final List<InventoryItem> sampleInventoryItems = [
+  static final List<InventoryItem> sampleInventoryItems = [
     InventoryItem(
       id: '1',
       name: 'Tomatoes',
@@ -206,132 +216,164 @@ class SampleData {
       weight: '500g',
       imageUrl: 'assets/images/salmon.jpg',
     ),
-  ];
-
-  // Sample recipes
-  final List<Recipe> sampleFavoriteRecipes = [
-    Recipe(
-      id: '1',
-      name: 'Avocado Toast with Eggs',
-      description: 'A healthy and delicious breakfast featuring creamy avocado and perfectly cooked eggs on toasted bread.',
-      servings: 2,
-      cookingTime: 15,
-      imageUrl: 'assets/images/avocado_toast.jpg',
-      ingredients: [
-        'Bread',
-        'Avocado',
-        'Eggs',
-        'Salt',
-        'Pepper',
-        'Olive oil',
-      ],
-      instructions: [
-        'Toast the bread until golden brown',
-        'Mash the avocado and season with salt and pepper',
-        'Spread the mashed avocado on the toast',
-        'Cook the eggs to your liking and place on top',
-        'Drizzle with olive oil and serve',
-      ],
-      difficulty: 'Easy',
-      tags: ['Breakfast', 'Healthy', 'Vegetarian'],
-    ),
-    Recipe(
-      id: '2',
-      name: 'Quinoa Salad',
-      description: 'A refreshing salad made with quinoa, fresh vegetables, and a light vinaigrette dressing.',
-      servings: 4,
-      cookingTime: 25,
-      imageUrl: 'assets/images/quinoa_salad.jpg',
-      ingredients: [
-        'Quinoa',
-        'Cherry tomatoes',
-        'Cucumber',
-        'Red onion',
-        'Olive oil',
-        'Lemon juice',
-        'Fresh herbs',
-      ],
-      instructions: [
-        'Cook quinoa according to package instructions',
-        'Chop all vegetables into bite-sized pieces',
-        'Mix cooked quinoa with vegetables',
-        'Whisk together olive oil and lemon juice',
-        'Pour dressing over salad and toss',
-        'Add fresh herbs and serve',
-      ],
-      difficulty: 'Medium',
-      tags: ['Salad', 'Healthy', 'Vegetarian', 'Gluten-free'],
-    ),
-    Recipe(
-      id: '3',
-      name: 'Veggie Curry',
-      description: 'A flavorful vegetarian curry packed with seasonal vegetables and aromatic spices.',
-      servings: 4,
-      cookingTime: 30,
-      imageUrl: 'assets/images/veggie_curry.jpg',
-      ingredients: [
-        'Mixed vegetables',
-        'Coconut milk',
-        'Curry powder',
-        'Onion',
-        'Garlic',
-        'Ginger',
-        'Rice',
-      ],
-      instructions: [
-        'Cook rice according to package instructions',
-        'Sauté onion, garlic, and ginger until fragrant',
-        'Add curry powder and cook for 1 minute',
-        'Add vegetables and coconut milk',
-        'Simmer until vegetables are tender',
-        'Serve hot over rice',
-      ],
-      difficulty: 'Medium',
-      tags: ['Curry', 'Vegetarian', 'Spicy', 'Asian'],
-    ),
-  ];
-
-  // Sample products
-  final List<Product> sampleProducts = [
-    Product(
-      id: '1',
-      name: 'Fresh Tomatoes',
-      description: 'Ripe and juicy tomatoes, perfect for salads or cooking',
-      price: 2.99,
-      imageUrl: 'assets/images/veggie_curry.jpg',
-      category: 'Produce',
-      unit: 'lb',
-    ),
-    Product(
-      id: '2',
-      name: 'Onions',
-      description: 'Fresh onions, essential for many dishes',
-      price: 1.99,
-      imageUrl: 'assets/images/fresh_from_farm.jpg',
-      category: 'Produce',
-      unit: 'lb',
-    ),
-    Product(
-      id: '3',
-      name: 'Chicken Breast',
-      description: 'Boneless, skinless chicken breast, high in protein',
-      price: 8.99,
-      imageUrl: 'assets/images/chicken_breast.jpg',
-      category: 'Meat & Seafood',
-      unit: 'lb',
-    ),
-    Product(
+    InventoryItem(
       id: '4',
-      name: 'Pork Belly',
-      description: 'Fresh pork belly, perfect for braising',
-      price: 7.99,
-      imageUrl: 'assets/images/pork.jpg',
-      category: 'Meat & Seafood',
-      unit: 'lb',
+      name: 'Ground Beef',
+      weight: '300g',
+      imageUrl: 'assets/images/ground_beef.jpg',
+    ),
+    InventoryItem(
+      id: '5',
+      name: 'Tofu',
+      weight: '300g',
+      imageUrl: 'assets/images/tofu.jpg',
+    ),
+    InventoryItem(
+      id: '6',
+      name: 'Shrimp',
+      weight: '300g',
+      imageUrl: 'assets/images/shrimp.jpg',
     ),
   ];
 
   /// Sample product data
+  static final List<Product> sampleProducts = [
+    Product(
+      id: 'chicken_breast',
+      name: 'Chicken Breast',
+      description: 'Fresh, boneless chicken breast.',
+      price: 8.0,
+      imageUrl: 'assets/images/chicken_breast.jpg',
+      category: 'Meat & Seafood',
+      unit: '500g',
+      isAvailable: true,
+    ),
+    Product(
+      id: 'ground_beef',
+      name: 'Ground Beef',
+      description: 'Fresh ground beef, perfect for burgers and meatballs.',
+      price: 7.0,
+      imageUrl: 'assets/images/ground_beef.jpg',
+      category: 'Meat & Seafood',
+      unit: '300g',
+      isAvailable: true,
+    ),
+    Product(
+      id: 'salmon',
+      name: 'Fresh Salmon',
+      description: 'Fresh Atlantic salmon fillet.',
+      price: 12.0,
+      imageUrl: 'assets/images/salmon.jpg',
+      category: 'Meat & Seafood',
+      unit: '400g',
+      isAvailable: true,
+    ),
+  ];
+
+  /// Sample recipes
+  static final List<Recipe> sampleFavoriteRecipes = [
+    Recipe(
+      id: '1',
+      name: 'Braised Duck',
+      description: 'Traditional braised duck with rich sauce',
+      imageUrl: 'assets/images/duck.jpg',
+      ingredients: ['Duck', 'Soy Sauce', 'Ginger', 'Green Onion'],
+      instructions: 'Clean the duck, prepare the sauce, braise for 1 hour',
+      servings: 4,
+      portions: 4,
+      cookingTime: '60 minutes',
+      difficulty: 'medium',
+      tags: ['Braised', 'Main dish', 'Classic'],
+    ),
+    Recipe(
+      id: '2',
+      name: 'Grilled Lamb Chops',
+      description: 'Juicy grilled lamb chops with herbs',
+      imageUrl: 'assets/images/lamb.jpg',
+      ingredients: ['Lamb Chops', 'Rosemary', 'Garlic', 'Olive Oil'],
+      instructions: 'Marinate the lamb, heat the grill, cook to desired doneness',
+      servings: 2,
+      portions: 2,
+      cookingTime: '30 minutes',
+      difficulty: 'medium',
+      tags: ['Grilled', 'Main dish', 'Quick'],
+    ),
+    Recipe(
+      id: '3',
+      name: 'Shrimp Scampi',
+      description: 'Classic shrimp scampi with garlic and white wine',
+      imageUrl: 'assets/images/shrimp.jpg',
+      ingredients: ['Shrimp', 'Garlic', 'White Wine', 'Butter'],
+      instructions: 'Sauté garlic, cook shrimp, add wine, finish with butter',
+      servings: 2,
+      portions: 2,
+      cookingTime: '20 minutes',
+      difficulty: 'easy',
+      tags: ['Seafood', 'Quick', 'Italian'],
+    ),
+  ];
+
+  /// Sample meat recipes
+  final List<Recipe> sampleMeatRecipes = [
+    Recipe(
+      id: '6',
+      name: 'Classic Roast Chicken',
+      description: 'Perfectly roasted chicken with herbs',
+      imageUrl: 'assets/images/chicken_breast.jpg',
+      ingredients: ['Whole Chicken', 'Herbs', 'Butter', 'Garlic'],
+      instructions: 'Season chicken, stuff with herbs, roast until golden',
+      servings: 4,
+      portions: 4,
+      cookingTime: '90 minutes',
+      difficulty: 'medium',
+      tags: ['Roasted', 'Main dish', 'Classic'],
+    ),
+    Recipe(
+      id: '7',
+      name: 'Grilled Salmon',
+      description: 'Fresh salmon fillet grilled to perfection',
+      imageUrl: 'assets/images/salmon.jpg',
+      ingredients: ['Salmon Fillet', 'Lemon', 'Dill', 'Olive Oil'],
+      instructions: 'Season salmon, grill skin side down first, flip once',
+      servings: 2,
+      portions: 2,
+      cookingTime: '15 minutes',
+      difficulty: 'easy',
+      tags: ['Seafood', 'Healthy', 'Quick'],
+    ),
+  ];
+
+  /// Sample vegetarian recipes
+  final List<Recipe> sampleVegetarianRecipes = [
+    Recipe(
+      id: '8',
+      name: 'Vegetable Curry',
+      description: 'Rich and spicy vegetable curry',
+      imageUrl: 'assets/images/veggie_curry.jpg',
+      ingredients: ['Mixed Vegetables', 'Coconut Milk', 'Curry Paste', 'Rice'],
+      instructions: 'Sauté vegetables, add curry paste and coconut milk, simmer',
+      servings: 4,
+      portions: 4,
+      cookingTime: '45 minutes',
+      difficulty: 'medium',
+      tags: ['Vegetarian', 'Spicy', 'Asian'],
+    ),
+    Recipe(
+      id: '9',
+      name: 'Quinoa Buddha Bowl',
+      description: 'Healthy bowl with quinoa and roasted vegetables',
+      imageUrl: 'assets/images/quinoa_salad.jpg',
+      ingredients: ['Quinoa', 'Roasted Vegetables', 'Avocado', 'Tahini'],
+      instructions: 'Cook quinoa, roast vegetables, assemble bowl, drizzle sauce',
+      servings: 2,
+      portions: 2,
+      cookingTime: '40 minutes',
+      difficulty: 'easy',
+      tags: ['Vegetarian', 'Healthy', 'Bowl'],
+    ),
+  ];
+
+  /// Sample products
   final List<Product> sampleProduceProducts = [
     Product(
       id: 'organic_pumpkin',
@@ -375,4 +417,28 @@ class SampleData {
 
   /// Sample bakery products
   final List<Product> sampleBakeryProducts = [];
+
+  /// Get all inventory items
+  static List<InventoryItem> get inventoryItems => List.unmodifiable(sampleInventoryItems);
+
+  /// Get inventory item by ID
+  static InventoryItem? getInventoryItemById(String id) {
+    try {
+      return sampleInventoryItems.firstWhere((item) => item.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Get all products
+  static List<Product> get products => List.unmodifiable(sampleProducts);
+
+  /// Get product by ID
+  static Product? getProductById(String id) {
+    try {
+      return sampleProducts.firstWhere((product) => product.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
 }

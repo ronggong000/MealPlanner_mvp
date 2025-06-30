@@ -2,14 +2,46 @@ class InventoryItem {
   final String id;
   final String name;
   final String weight;
-  final String imageUrl;
+  final String? imageUrl;
 
   const InventoryItem({
     required this.id,
     required this.name,
     required this.weight,
-    required this.imageUrl,
+    this.imageUrl,
   });
+
+  InventoryItem copyWith({
+    String? id,
+    String? name,
+    String? weight,
+    String? imageUrl,
+  }) {
+    return InventoryItem(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      weight: weight ?? this.weight,
+      imageUrl: imageUrl ?? this.imageUrl,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'weight': weight,
+      'imageUrl': imageUrl,
+    };
+  }
+
+  factory InventoryItem.fromJson(Map<String, dynamic> json) {
+    return InventoryItem(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      weight: json['weight'] as String,
+      imageUrl: json['imageUrl'] as String?,
+    );
+  }
 }
 
 // Sample data

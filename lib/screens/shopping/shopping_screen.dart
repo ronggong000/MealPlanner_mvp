@@ -413,13 +413,34 @@ class _ShoppingScreenState extends State<ShoppingScreen> with SingleTickerProvid
 // Sample product data
 final List<Product> sampleProduceProducts = [
   Product(
-    id: '1',
-    name: 'Fresh Tomatoes',
-    description: 'Ripe and juicy tomatoes, perfect for salads or cooking',
-    price: 2.99,
-    imageUrl: 'assets/images/veggie_curry.jpg',
+    id: 'organic_pumpkin',
+    name: 'Organic Pumpkin',
+    description: 'Fresh organic pumpkin, perfect for soups, pies, and roasting.',
+    price: 5.0,
+    imageUrl: 'assets/images/pumpkin.jpg',
     category: 'Produce',
-    unit: 'lb',
+    unit: '1500g',
+    isAvailable: true,
+  ),
+  Product(
+    id: 'organic_eggs',
+    name: 'Organic Eggs',
+    description: 'Farm-fresh organic eggs from free-range chickens.',
+    price: 6.0,
+    imageUrl: 'assets/images/eggs.jpg',
+    category: 'Produce',
+    unit: '12 pcs',
+    isAvailable: true,
+  ),
+  Product(
+    id: 'chicken_breast',
+    name: 'Chicken Breast',
+    description: 'Fresh, boneless chicken breast.',
+    price: 8.0,
+    imageUrl: 'assets/images/chicken_breast.jpg',
+    category: 'Meat & Seafood',
+    unit: '500g',
+    isAvailable: true,
   ),
   Product(
     id: '2',
@@ -429,6 +450,7 @@ final List<Product> sampleProduceProducts = [
     imageUrl: 'assets/images/fresh_from_farm.jpg',
     category: 'Produce',
     unit: 'bunch',
+    isAvailable: true,
   ),
   // Add more produce items
 ];
@@ -442,6 +464,7 @@ final List<Product> sampleMeatProducts = [
     imageUrl: 'assets/images/chicken_breast.jpg',
     category: 'Meat & Seafood',
     unit: 'lb',
+    isAvailable: true,
   ),
   Product(
     id: '4',
@@ -451,6 +474,7 @@ final List<Product> sampleMeatProducts = [
     imageUrl: 'assets/images/salmon.jpg',
     category: 'Meat & Seafood',
     unit: 'lb',
+    isAvailable: true,
   ),
   // Add more meat items
 ];
@@ -464,6 +488,7 @@ final List<Product> sampleDairyProducts = [
     imageUrl: 'assets/images/avocado_toast.jpg',
     category: 'Dairy & Eggs',
     unit: 'dozen',
+    isAvailable: true,
   ),
   // Add more dairy items
 ];
@@ -477,6 +502,7 @@ final List<Product> samplePantryProducts = [
     imageUrl: 'assets/images/quinoa_salad.jpg',
     category: 'Pantry',
     unit: 'lb',
+    isAvailable: true,
   ),
   // Add more pantry items
 ];
@@ -490,6 +516,7 @@ final List<Product> sampleFrozenProducts = [
     imageUrl: 'assets/images/fish_and_fresh.jpg',
     category: 'Frozen Foods',
     unit: 'bag',
+    isAvailable: true,
   ),
   // Add more frozen items
 ];
@@ -503,6 +530,7 @@ final List<Product> sampleBeverageProducts = [
     imageUrl: 'assets/images/fruit_major.jpg',
     category: 'Beverages',
     unit: 'bottle',
+    isAvailable: true,
   ),
   // Add more beverage items
 ];
@@ -516,6 +544,7 @@ final List<Product> sampleSnackProducts = [
     imageUrl: 'assets/images/tofu.jpg',
     category: 'Snacks',
     unit: 'bag',
+    isAvailable: true,
   ),
   // Add more snack items
 ];
@@ -529,6 +558,7 @@ final List<Product> sampleBakeryProducts = [
     imageUrl: 'assets/images/italian.jpg',
     category: 'Bakery',
     unit: 'piece',
+    isAvailable: true,
   ),
   // Add more bakery items
 ];
