@@ -4,15 +4,13 @@ import '../screens/basket/basket_detail_screen.dart';
 import '../screens/basket/basket_screen.dart';
 import '../screens/cook/cook_screen.dart';
 import '../screens/meal_planning/meal_planning_screen.dart';
-import '../screens/meal_planning/new_meals_screen.dart';
-import '../screens/meal_planning/preference_collection_screen.dart';
-import '../screens/meal_planning/recipe_detail_screen.dart';
 import '../screens/settings/settings_screen.dart';
 import '../screens/shopping/shopping_screen.dart';
 import '../screens/shopping/product_detail_screen.dart';
 import '../screens/shopping/receipt_screen.dart';
 import '../screens/shopping/cart_screen.dart';
 import '../widgets/main_navigation.dart';
+import '../screens/settings/preferences_screen.dart';
 
 /// App router configuration
 class AppRouter {
@@ -26,9 +24,6 @@ class AppRouter {
     '/shopping/receipt': (context) => ReceiptScreen(orderData: {}),
     '/settings': (context) => const SettingsScreen(),
     '/meal-planning': (context) => const MealPlanningScreen(),
-    '/meal-planning/new': (context) => const NewMealsScreen(),
-    '/meal-planning/preferences': (context) => const PreferenceCollectionScreen(),
-    '/meal-planning/recipe': (context) => RecipeDetailScreen(recipeId: ''),
     '/cart': (context) => const CartScreen(),
   };
 

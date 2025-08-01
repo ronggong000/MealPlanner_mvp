@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 import '../../models/recipe.dart';
+import '../../models/inventory_item.dart';
+import '../../data/sample_data.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../providers/recipes_provider.dart';
+import '../../screens/settings/preferences_screen.dart' show generateSingleRecipe;
+import '../../utils/llm_recipe_utils.dart';
+import 'dart:async';
 
-class RecipeDetailScreen extends StatelessWidget {
+class RecipeDetailScreen extends ConsumerWidget {
   final Recipe recipe;
+  final bool isGenerated;
+  final List<InventoryItem>? inventoryItems;
+  final int? servings;
+  final String? prompt;
 
   const RecipeDetailScreen({
     super.key,
     required this.recipe,
+    this.isGenerated = false,
+    this.inventoryItems,
+    this.servings,
+    this.prompt,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -140,6 +155,36 @@ class RecipeDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
+            if (isGenerated) ...[
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.save),
+                      label: const Text('Save'),
+                      onPressed: () {
+                        ref.read(recipesProvider.notifier).addRecipe(recipe);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Recipe saved to collection!'),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
+                        Navigator.of(context).pop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ],
         ),
       ),

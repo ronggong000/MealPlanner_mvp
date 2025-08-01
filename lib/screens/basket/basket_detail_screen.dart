@@ -20,26 +20,28 @@ class _BasketDetailScreenState extends ConsumerState<BasketDetailScreen> {
   int _selectedDays = 3;
   int _selectedServings = 2;
 
+  double get _scale => (_selectedServings / 2) * (_selectedDays / 3);
+
   void _addToCart() {
     final basketDetail = freshFromFarmDetail;
-    
-    // Convert basket items to products and add to cart
+    final scale = _scale;
     for (var item in basketDetail.items) {
+      final double originalWeight = double.tryParse(item.weight.replaceAll(RegExp(r'[^0-9.]'), '')) ?? 0;
+      final String unit = item.weight.replaceAll(RegExp(r'[0-9. ]'), '');
+      final double scaledWeight = (originalWeight * scale);
+      final double scaledPrice = (item.price * scale);
       final product = Product(
         id: item.name.toLowerCase().replaceAll(' ', '_'),
         name: item.name,
         description: 'Fresh ${item.name} from the basket',
-        price: item.price,
-        imageUrl: 'assets/images/veggie_curry.jpg', // Default image
+        price: double.parse(scaledPrice.toStringAsFixed(2)),
+        imageUrl: 'assets/images/veggie_curry.jpg',
         category: widget.categoryName,
-        unit: item.weight,
+        unit: '${scaledWeight.toStringAsFixed(0)}$unit',
         isAvailable: true,
       );
-      
-      // Add to cart with quantity 1
       ref.read(cartProvider.notifier).addToCart(product, quantity: 1);
     }
-
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Basket items added to cart'),
@@ -51,7 +53,11 @@ class _BasketDetailScreenState extends ConsumerState<BasketDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final basketDetail = freshFromFarmDetail;
-
+    final scale = _scale;
+    double totalPrice = 0;
+    for (var item in basketDetail.items) {
+      totalPrice += item.price * scale;
+    }
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -79,6 +85,10 @@ class _BasketDetailScreenState extends ConsumerState<BasketDetailScreen> {
               itemCount: basketDetail.items.length,
               itemBuilder: (context, index) {
                 final item = basketDetail.items[index];
+                final double originalWeight = double.tryParse(item.weight.replaceAll(RegExp(r'[^0-9.]'), '')) ?? 0;
+                final String unit = item.weight.replaceAll(RegExp(r'[0-9. ]'), '');
+                final double scaledWeight = (originalWeight * scale);
+                final double scaledPrice = (item.price * scale);
                 return ListTile(
                   leading: const CircleAvatar(
                     backgroundColor: Colors.grey,
@@ -88,11 +98,15 @@ class _BasketDetailScreenState extends ConsumerState<BasketDetailScreen> {
                     item.name,
                     style: const TextStyle(fontWeight: FontWeight.w500),
                   ),
+                  subtitle: Text(
+                    '${scaledWeight.toStringAsFixed(0)}$unit',
+                    style: const TextStyle(color: Colors.grey),
+                  ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        item.weight,
+                        '${scaledPrice.toStringAsFixed(2)}',
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontWeight: FontWeight.w500,
@@ -117,7 +131,7 @@ class _BasketDetailScreenState extends ConsumerState<BasketDetailScreen> {
                     ),
                   ),
                   Text(
-                    '\$${basketDetail.totalPrice.toStringAsFixed(2)}',
+                    '${totalPrice.toStringAsFixed(2)}',
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -132,12 +146,14 @@ class _BasketDetailScreenState extends ConsumerState<BasketDetailScreen> {
               title: 'Day',
               value: _selectedDays,
               onDecrease: () {
-                if (_selectedDays > 1) {
+                if (_selectedDays > 2) {
                   setState(() => _selectedDays--);
                 }
               },
               onIncrease: () {
-                setState(() => _selectedDays++);
+                if (_selectedDays < 7) {
+                  setState(() => _selectedDays++);
+                }
               },
             ),
             _buildSelectionSection(
@@ -149,7 +165,9 @@ class _BasketDetailScreenState extends ConsumerState<BasketDetailScreen> {
                 }
               },
               onIncrease: () {
-                setState(() => _selectedServings++);
+                if (_selectedServings < 8) {
+                  setState(() => _selectedServings++);
+                }
               },
             ),
             Padding(

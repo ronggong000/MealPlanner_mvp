@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
+import 'preferences_screen.dart';
 
 /// Settings page
 class SettingsScreen extends StatefulWidget {
@@ -135,8 +136,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: 'Preferences',
                   subtitle: 'Set liked and disliked foods',
                   onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Preferences feature coming soon')),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PreferencesScreen(),
+                      ),
                     );
                   },
                 ),
